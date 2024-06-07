@@ -1,18 +1,71 @@
-const apiKey = 'tu_clave_de_api';
-const movieTitle = 'The Matrix'; // Título de la película que deseas buscar
+const apiKey = '50a718ad'; 
+const movieTitles = [
+    'Inception',
+    'The Matrix',
+    'Interstellar',
+    'The Dark Knight',
+    'Pulp Fiction',
+    'Fight Club',
+    'Forrest Gump',
+    'The Shawshank Redemption',
+    'The Godfather',
+    'The Lord of the Rings: The Fellowship of the Ring',
+    'Star Wars: Episode IV - A New Hope',
+    'The Empire Strikes Back',
+    'The Silence of the Lambs',
+    'Schindler\'s List',
+    'Goodfellas'
+];
 
-// Construye la URL de la solicitud
-const apiUrl = `https://www.omdbapi.com/?t=${movieTitle}&apikey=${apiKey}`;
+const url = 'http://www.omdbapi.com/';
 
-// Realiza la solicitud GET
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    // Maneja la respuesta de la API
-    console.log(data);
-    // Aquí puedes trabajar con los datos de la película
-  })
-  .catch(error => {
-    // Maneja cualquier error que ocurra durante la solicitud
-    console.error('Error:', error);
-  });
+function fetchMovieDetails(title) {
+    const params = new URLSearchParams({
+        apikey: apiKey,
+        t: title,
+        plot: 'short'
+    });
+
+    return fetch(`${url}?${params}`)
+        .then(response => response.json())
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            return null;
+        });
+}
+
+function displayMovies(movies) {
+    const moviesContainer = document.getElementById('movies-container');
+    moviesContainer.innerHTML = '';
+
+    movies.forEach(movie => {
+        if (movie && movie.Response === "True") {
+            const movieCard = `
+                <div class="col s12 m6 l3">
+                    <div class="card movie-card hoverable">
+                        <div class="card-image">
+                            <img src="${movie.Poster}" alt="Poster of ${movie.Title}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">${movie.Title}</span>
+                            <p><strong>Year:</strong> ${movie.Year}</p>
+                            <p><strong>Director:</strong> ${movie.Director}</p>
+                            <p><strong>IMDb Rating:</strong> ${movie.imdbRating}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            moviesContainer.innerHTML += movieCard;
+        }
+    });
+}
+
+function fetchAndDisplayMovies() {
+    const moviePromises = movieTitles.map(title => fetchMovieDetails(title));
+    Promise.all(moviePromises)
+        .then(movies => {
+            displayMovies(movies);
+        });
+}
+
+fetchAndDisplayMovies();
