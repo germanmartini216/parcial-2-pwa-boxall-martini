@@ -31,3 +31,12 @@ body {
 h1 {
     animation: bounce 2s infinite;
 }
+
+.brand-logo img{
+    width: 100px;
+    height: 100px;
+}
+
+nav.nav-extended .nav-wrapper{
+    min-height: 86px;
+}
