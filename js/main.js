@@ -36,7 +36,7 @@ function fetchMovieDetails(title) {
 
 function displayMovies(movies) {
   const moviesContainer = document.getElementById('movies-container');
-  moviesContainer.innerHTML = '';
+  moviesContainer.innerHTML = "";
 
   movies.forEach(movie => {
     if (movie && movie.Response === "True") {
