@@ -19,6 +19,16 @@ const movieTitles = [
 
 const url = 'http://www.omdbapi.com/';
 
+if(navigator.serviceWorker) {
+    navigator.serviceWorker.register('../sw.js')
+    .then(() => {
+        console.info("registrado");
+    })
+    .catch(() => {
+        console.error("falló");
+    });
+}
+
 function fetchMovieDetails(title) {
   const params = new URLSearchParams({
     apikey: apiKey,
