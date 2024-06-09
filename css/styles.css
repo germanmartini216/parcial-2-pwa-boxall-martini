@@ -40,3 +40,11 @@ h1 {
 nav.nav-extended .nav-wrapper{
     min-height: 86px;
 }
+
+.sec1{
+    padding: 1rem;
+}
+
+form{
+    padding: 4rem 0rem !important;
+}

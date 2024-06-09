@@ -61,11 +61,24 @@ function displayMovies(movies) {
                           <p><strong>Year:</strong> ${movie.Year}</p>
                           <p><strong>Director:</strong> ${movie.Director}</p>
                           <p><strong>IMDb Rating:</strong> ${movie.imdbRating}</p>
-                          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+                          <a class="waves-effect waves-light btn modal-trigger" href="#modal${movie.imdbID}">Modal</a>
                       </div>
                   </div>
                   
                 </div>
+
+                <div id="#modal${movie.imdbID}" class="modal">
+                  <div class="modal-content">
+                  <span>${movie.Title}</span>
+                          <p><strong>Year:</strong> ${movie.Year}</p>
+                          <p><strong>Director:</strong> ${movie.Director}</p>
+                          <p><strong>IMDb Rating:</strong> ${movie.imdbRating}</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+
+              </div>
           `;
       moviesContainer.innerHTML += movieCard;
     }

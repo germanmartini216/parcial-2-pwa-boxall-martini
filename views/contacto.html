@@ -36,54 +36,77 @@
                 <li><a href="registrarse.html">Registrarse</a></li>
             </ul>
             <!-- NAV -->
-        <div class="container">
-            <div class="row">
-                <form class="col s12">
+
+            <div class="container">
+
+                <div class="container">
+                    <h1>Contactanos!</h1>
+                    <h4>Dejanos tu mensaje</h4>
+
                     <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                            <label for="disabled">Disabled</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="input-field inline">
-                                <input id="email_inline" type="email" class="validate">
-                                <label for="email_inline">Email</label>
-                                <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="Placeholder" id="primerNombre" type="text" class="validate">
+                                    <label for="primerNombre">Nombre: </label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="apellido" type="text" class="validate">
+                                    <label for="apellido">Apellido: </label>
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email" type="email" class="validate">
+                                    <label for="email">Email: </label>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="input-field col s12">
+                                  <textarea id="Mensaje" class="materialize-textarea"></textarea>
+                                  <label for="Mensaje">Mensaje: </label>
+                                </div>
+                              </div>
+
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                                <i class="material-icons right">send</i>
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <footer class="page-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l2 s12">
+                            <a href="#" class="brand-logo"><img src="../img/logocine.png" alt="logo de peliculas"></a>
+                        </div>
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Mundo Cine</h5>
+                            
+                            <p class="grey-text text-lighten-4">Podes contactarnos para solicitar las peliculas que quieras agregar al catálogo</p>
+                            <a class="waves-effect waves-light btn" href="../views/contacto.html">Contacto</a>
+                        </div>
+                        <div class="col l4 s12">
+                            <h5 class="white-text">Menu</h5>
+                            <ul>
+                                <li class="grey-text text-lighten-3""><a  href="../index.html"> Inicio </a></li>
+                                <li class="grey-text text-lighten-3""><a href="catalogo.html">Catálogo</a></li>
+                                <li class="grey-text text-lighten-3""><a class="active" href="contacto.html">Contacto</a></li>
+                            </ul>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-        </button>
-
+                </div>
+                <div class="footer-copyright">
+                    <div class="container">
+                        © 2024 Copyright - Davinci
+                    </div>
+                </div>
+            </footer>
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
