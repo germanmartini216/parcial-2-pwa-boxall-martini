@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="manifest" href="../manifest.json">
 </head>
 
 <body>
@@ -20,8 +21,8 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="amber-text" href="iniciarSesion.html">Iniciar Sesion</a></li>
                 <li><a class="amber-text" href="registrarse.html">Registrarse</a></li>
-                <li><a class="waves-effect amber waves-light btn"><i
-                            class="material-icons left">file_download</i>Instalar</a></li>
+                <li><a  class="waves-effect amber waves-light btn" onclick="installApp()">
+                    <i class="material-icons left" id="install-button" style="display: none;" >file_download</i>Instalar</a></li>
             </ul>
         </div>
         <div class="nav-content">

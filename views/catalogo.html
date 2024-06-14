@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="manifest" href="../manifest.json">
 </head>
 
 <body>
@@ -15,13 +16,14 @@
 
     <nav class="nav-extended black">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas"> MUNDO<span>CINE</span></a>
+            <a href="#" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas">
+                MUNDO<span>CINE</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="amber-text" href="iniciarSesion.html">Iniciar Sesion</a></li>
                 <li><a class="amber-text" href="registrarse.html">Registrarse</a></li>
-                <li><a class="waves-effect amber waves-light btn"><i
-                            class="material-icons left">file_download</i>Instalar</a></li>
+                <li><a  class="waves-effect amber waves-light btn" onclick="installApp()">
+                    <i class="material-icons left" id="install-button" style="display: none;" >file_download</i>Instalar</a></li>
             </ul>
         </div>
         <div class="nav-content">
@@ -57,12 +59,14 @@
         <div class="container">
             <div class="row">
                 <div class="col l2 s12">
-                    <a href="#" class="brand-logo"><img class="footerLogo" src="../img/logo.svg" alt="logo de peliculas"></a>
+                    <a href="#" class="brand-logo"><img class="footerLogo" src="../img/logo.svg"
+                            alt="logo de peliculas"></a>
                 </div>
                 <div class="col l6 s12">
                     <h5 class="white-text">Mundo Cine</h5>
-                    
-                    <p class="grey-text text-lighten-4">Podes contactarnos para solicitar las peliculas que quieras agregar al catálogo</p>
+
+                    <p class="grey-text text-lighten-4">Podes contactarnos para solicitar las peliculas que quieras
+                        agregar al catálogo</p>
                     <a class="waves-effect amber waves-light btn" href="contacto.html">Contacto</a>
                 </div>
                 <div class="col l4 s12">
@@ -86,6 +90,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/scripts.js"></script>
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();  
+            deferredPrompt = e;  
+            document.getElementById('install-button').style.display = 'block'; 
+        });
+
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('ususario acepto la instalacion');
+                        document.getElementById('install-button').style.display = 'none'; 
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
+
+    </script>
 </body>
 
 </html>
