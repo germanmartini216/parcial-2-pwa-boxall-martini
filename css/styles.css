@@ -40,6 +40,12 @@ h1 {
   font-style: normal;
   font-size: 6rem;
 }
+
+h3 {
+  font-family: "impetus", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 span {
   color: #febb12;
 }
@@ -99,4 +105,8 @@ form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.modal-image img {
+  max-width: 100%;
 }

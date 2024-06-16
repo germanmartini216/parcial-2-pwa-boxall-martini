@@ -1,15 +1,15 @@
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/js/service-worker.js').then(registration => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        navigator.serviceWorker.register('/js/service-worker.js').then(registro => {
+            console.log('Registro de ServiceWorker exitoso con alcance: ', registro.scope);
         }).catch(error => {
-            console.error('ServiceWorker registration failed:', error);
+            console.error('El registro de ServiceWorker falló:', error);
         });
     });
 }
 
 const apiKey = '50a718ad';
-const movieTitles = [
+const titulosDePeliculas = [
     'Inception',
     'The Matrix',
     'Interstellar',
@@ -30,101 +30,126 @@ const movieTitles = [
 const url = 'http://www.omdbapi.com/';
 const CACHE_NAME = 'movies-cache-v1';
 
-async function fetchMovieDetails(title) {
+document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('.modal');
+    M.Modal.init(elems);
+});
+
+async function obtenerDetallesDePelicula(titulo) {
     const params = new URLSearchParams({
         apikey: apiKey,
-        t: title,
+        t: titulo,
         plot: 'short'
     });
 
     const requestUrl = `${url}?${params}`;
+
     try {
         const cache = await caches.open(CACHE_NAME);
-        const cachedResponse = await cache.match(requestUrl);
+        const respuestaEnCache = await cache.match(requestUrl);
 
-        if (cachedResponse) {
-            console.log(`Cache hit for: ${title}`);
-            return await cachedResponse.json();
+        if (respuestaEnCache) {
+            console.log(`Cache hit para: ${titulo}`);
+            return await respuestaEnCache.json();
         } else {
-            console.log(`Fetching from network: ${title}`);
-            const networkResponse = await fetch(requestUrl);
-            if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
-                cache.put(requestUrl, networkResponse.clone());
+            console.log(`Fetching from network: ${titulo}`);
+            const respuestaDeRed = await fetch(requestUrl);
+            if (respuestaDeRed && respuestaDeRed.status === 200) {
+                cache.put(requestUrl, respuestaDeRed.clone());
+                return await respuestaDeRed.json();
+            } else {
+                console.error('La respuesta de la red no fue correcta.');
+                return null;
             }
-            return await networkResponse.json();
         }
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error al obtener los datos:', error);
         return null;
     }
 }
 
-function displayMovies(movies) {
-    const moviesContainer = document.getElementById('movies-container');
-    if (!moviesContainer) {
-        console.error('movies-container not found');
+function mostrarPeliculas(peliculas) {
+    const contenedorDePeliculas = document.getElementById('movies-container');
+    if (!contenedorDePeliculas) {
+        console.error('No se encontró el contenedor de películas');
         return;
     }
-    moviesContainer.innerHTML = '';
+    contenedorDePeliculas.innerHTML = '';
 
-    movies.forEach(movie => {
-        if (movie && movie.Response === "True") {
-            const isFavorite = favoriteMovies.includes(movie.imdbID);
-            const movieCard = `
-              <div class="col s12 m6 l3">
-                  <div class="card movie-card hoverable">
-                      <div class="card-image">
-                          <img src="${movie.Poster}" alt="Poster of ${movie.Title}">
-                      </div>
-                      <div class="card-content">
-                          <span class="card-title">${movie.Title}</span>
-                          <p><strong>Year:</strong> ${movie.Year}</p>
-                          <p><strong>Director:</strong> ${movie.Director}</p>
-                          <p><strong>IMDb Rating:</strong> ${movie.imdbRating}</p>
-                      </div>
-                      <div class="card-action">
-                            <a class="waves-effect waves-light btn-small ${isFavorite ? 'red' : 'amber'}" onclick="toggleFavorite('${movie.imdbID}')">
-                                ${isFavorite ? '<i class="material-icons">favorite</i>' : '<i class="material-icons">favorite_border</i>'}
-                            </a>
-                            <a class="waves-effect waves-light btn-small amber">Detalles</a>
+    peliculas.forEach(pelicula => {
+        if (pelicula && pelicula.Response === "True") {
+            const esFavorita = peliculasFavoritas.includes(pelicula.imdbID);
+            const tarjetaDePelicula = `
+                <div class="col s12 m6 l3">
+                    <div class="card movie-card hoverable">
+                        <div class="card-image">
+                            <img src="${pelicula.Poster}" alt="Poster de ${pelicula.Title}">
                         </div>
-                  </div>
-              </div>
-          `;
-            moviesContainer.innerHTML += movieCard;
+                        <div class="card-content">
+                            <span class="card-title">${pelicula.Title}</span>
+                            <p><strong>Año:</strong> ${pelicula.Year}</p>
+                            <p><strong>Director:</strong> ${pelicula.Director}</p>
+                            <p><strong>IMDb Rating:</strong> ${pelicula.imdbRating}</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="waves-effect waves-light btn-small ${esFavorita ? 'red' : 'amber'}" onclick="alternarFavorita('${pelicula.imdbID}')">
+                                ${esFavorita ? '<i class="material-icons">favorite</i>' : '<i class="material-icons">favorite_border</i>'}
+                            </a>
+                            <a class="waves-effect waves-light btn-small amber modal-trigger" href="#modal" onclick="mostrarDetalles('${pelicula.imdbID}')">Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            contenedorDePeliculas.innerHTML += tarjetaDePelicula;
         } else {
-            console.warn(`pelicula no encontrada: ${JSON.stringify(movie)}`);
+            console.warn(`Película no encontrada: ${JSON.stringify(pelicula)}`);
         }
     });
 }
 
-function toggleFavorite(movieId) {
-    const index = favoriteMovies.indexOf(movieId);
-    if (index === -1) {
-        favoriteMovies.push(movieId);
-    } else {
-        favoriteMovies.splice(index, 1);
+function mostrarDetalles(idPelicula) {
+    const pelicula = peliculasGuardadas.find(pelicula => pelicula.imdbID === idPelicula);
+    if (pelicula) {
+        document.getElementById('modal-title').textContent = pelicula.Title;
+        document.getElementById('modal-poster').src = pelicula.Poster;
+        document.getElementById('modal-year').textContent = `Año: ${pelicula.Year}`;
+        document.getElementById('modal-director').textContent = `Director: ${pelicula.Director}`;
+        document.getElementById('modal-plot').textContent = `Trama: ${pelicula.Plot}`;
+        document.getElementById('modal-rating').textContent = `Puntuación: ${pelicula.imdbRating}`;
+        const modal = M.Modal.getInstance(document.getElementById('modal'));
+        modal.open();
     }
-    saveFavoriteMovies(favoriteMovies);
-    fetchAndDisplayMovies();
 }
 
-let favoriteMovies = loadFavoriteMovies();
-fetchAndDisplayMovies();
-function fetchAndDisplayMovies() {
-    const moviePromises = movieTitles.map(title => fetchMovieDetails(title));
-    Promise.all(moviePromises).then(movies => {
-        console.log('All movies fetched:', movies);
-        displayMovies(movies);
-    });
-}
-function saveFavoriteMovies(favorites) {
-    localStorage.setItem('favoriteMovies', JSON.stringify(favorites));
+function alternarFavorita(idPelicula) {
+    const indice = peliculasFavoritas.indexOf(idPelicula);
+    if (indice === -1) {
+        peliculasFavoritas.push(idPelicula);
+    } else {
+        peliculasFavoritas.splice(indice, 1);
+    }
+    guardarPeliculasFavoritas(peliculasFavoritas);
+    obtenerYMostrarPeliculas();
 }
 
-function loadFavoriteMovies() {
-    const favoritesJSON = localStorage.getItem('favoriteMovies');
-    return JSON.parse(favoritesJSON) || [];
+let peliculasFavoritas = cargarPeliculasFavoritas();
+let peliculasGuardadas = [];
+
+async function obtenerYMostrarPeliculas() {
+    const promesasDePeliculas = titulosDePeliculas.map(titulo => obtenerDetallesDePelicula(titulo));
+    const peliculas = await Promise.all(promesasDePeliculas);
+    peliculasGuardadas = peliculas;
+    console.log('Todas las películas obtenidas:', peliculas);
+    mostrarPeliculas(peliculas);
 }
 
-fetchAndDisplayMovies();
+function guardarPeliculasFavoritas(favoritas) {
+    localStorage.setItem('peliculasFavoritas', JSON.stringify(favoritas));
+}
+
+function cargarPeliculasFavoritas() {
+    const favoritasJSON = localStorage.getItem('peliculasFavoritas');
+    return favoritasJSON ? JSON.parse(favoritasJSON) : [];
+}
+
+obtenerYMostrarPeliculas();
