@@ -16,13 +16,15 @@
 
     <nav class="nav-extended black">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas"> MUNDO<span>CINE</span></a>
+            <a href="#" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas">
+                MUNDO<span>CINE</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="amber-text" href="iniciarSesion.html">Iniciar Sesion</a></li>
                 <li><a class="amber-text" href="registrarse.html">Registrarse</a></li>
-                <li><a  class="waves-effect amber waves-light btn" onclick="installApp()">
-                    <i class="material-icons left" id="install-button" style="display: none;" >file_download</i>Instalar</a></li>
+                <li><a class="waves-effect amber waves-light btn" onclick="installApp()">
+                        <i class="material-icons left" id="install-button"
+                            style="display: none;">file_download</i>Instalar</a></li>
             </ul>
         </div>
         <div class="nav-content">
@@ -30,6 +32,7 @@
                 <li class="tab"><a href="../index.html"> Inicio </a></li>
                 <li class="tab"><a href="catalogo.html">Catálogo</a></li>
                 <li class="tab"><a class="active amber-text" href="contacto.html">Contacto</a></li>
+                <li class="tab"><a href="favoritos.html">Favoritos <span class="badge amber">1</span></a></li>
             </ul>
         </div>
     </nav>
@@ -38,82 +41,84 @@
         <li><a href="iniciarSesion.html">Iniciar Sesion</a></li>
         <li><a href="registrarse.html">Registrarse</a></li>
     </ul>
-            <!-- NAV -->
+    <!-- NAV -->
 
-            <div class="container">
+    <div class="container">
 
-                <div class="container">
-                    <h1>Contactanos!</h1>
-                    <h4>Dejanos tu mensaje</h4>
+        <div class="container">
+            <h1>Contactanos!</h1>
+            <h4>Dejanos tu mensaje</h4>
 
+            <div class="row">
+                <form class="col s12">
                     <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s6">
-                                    <input placeholder="Placeholder" id="primerNombre" type="text" class="validate">
-                                    <label for="primerNombre">Nombre: </label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="apellido" type="text" class="validate">
-                                    <label for="apellido">Apellido: </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="email" type="email" class="validate">
-                                    <label for="email">Email: </label>
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="input-field col s12">
-                                  <textarea id="Mensaje" class="materialize-textarea"></textarea>
-                                  <label for="Mensaje">Mensaje: </label>
-                                </div>
-                              </div>
-
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-                                <i class="material-icons right">send</i>
-                            </button>
-
-                        </form>
+                        <div class="input-field col s6">
+                            <input placeholder="Placeholder" id="primerNombre" type="text" class="validate">
+                            <label for="primerNombre">Nombre: </label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="apellido" type="text" class="validate">
+                            <label for="apellido">Apellido: </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email: </label>
+                        </div>
                     </div>
 
-                </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="Mensaje" class="materialize-textarea"></textarea>
+                            <label for="Mensaje">Mensaje: </label>
+                        </div>
+                    </div>
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                </form>
             </div>
 
-            <footer class="page-footer black">
-                <div class="container">
-                    <div class="row">
-                        <div class="col l2 s12">
-                            <a href="#" class="brand-logo"><img class="footerLogo" src="../img/logo.svg" alt="logo de peliculas"></a>
-                        </div>
-                        <div class="col l6 s12">
-                            <h5 class="white-text">Mundo Cine</h5>
-                            
-                            <p class="grey-text text-lighten-4">Podes contactarnos para solicitar las peliculas que quieras agregar al catálogo</p>
-                            <a class="waves-effect amber waves-light btn" href="contacto.html">Contacto</a>
-                        </div>
-                        <div class="col l4 s12">
-                            <h5 class="white-text">Menu</h5>
-                            <ul>
-                                <li><a class="active amber-text" href="../index.html"> Inicio </a></li>
-                                <li><a class="amber-text" href="catalogo.html">Catálogo</a></li>
-                                <li><a class="amber-text" href="contacto.html">Contacto</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright">
-                    <div class="container">
-                        © 2024 Copyright - Davinci
-                    </div>
-                </div>
-            </footer>
+        </div>
+    </div>
 
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            <script src="../js/scripts.js"></script>
+    <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col l2 s12">
+                    <a href="#" class="brand-logo"><img class="footerLogo" src="../img/logo.svg"
+                            alt="logo de peliculas"></a>
+                </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Mundo Cine</h5>
+
+                    <p class="grey-text text-lighten-4">Podes contactarnos para solicitar las peliculas que quieras
+                        agregar al catálogo</p>
+                    <a class="waves-effect amber waves-light btn" href="contacto.html">Contacto</a>
+                </div>
+                <div class="col l4 s12">
+                    <h5 class="white-text">Menu</h5>
+                    <ul>
+                        <li><a class="active amber-text" href="../index.html"> Inicio </a></li>
+                        <li><a class="amber-text" href="catalogo.html">Catálogo</a></li>
+                        <li><a class="amber-text" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2024 Copyright - Davinci
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../js/scripts.js"></script>
 </body>
 
 </html>
