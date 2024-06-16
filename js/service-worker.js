@@ -8,11 +8,13 @@ self.addEventListener('install', event => {
                     '/',
                     '../index.html',
                     '../views/catalogo.html',
-                     '../views/registrarse.html',
-                      '../views/contacto.html',
-                       '../views/iniciarSesion.html',
-                   '/js/main.js',
+                    '../views/registrarse.html',
+                    '../views/contacto.html',
+                    '../views/iniciarSesion.html',
+                    '../views/favoritos.html',
+                    '/js/main.js',
                     '/js/scripts.js',
+                    '/js/contacto.js',
                     '../css/styles.css',
                     '../icons/icon-192x192.png',
                     '../icons/icon-512x512.png',
@@ -48,7 +50,7 @@ self.addEventListener('fetch', event => {
         caches.match(request)
             .then(response => {
                 if (response) {
-                    return response; 
+                    return response;
                 }
 
                 const fetchRequest = request.clone();
@@ -63,7 +65,7 @@ self.addEventListener('fetch', event => {
 
                         caches.open(CACHE_NAME)
                             .then(cache => {
-                                cache.put(request, responseToCache); 
+                                cache.put(request, responseToCache);
                             });
 
                         return response;
