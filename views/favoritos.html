@@ -32,7 +32,8 @@
                 <li class="tab"><a href="../index.html"> Inicio </a></li>
                 <li class="tab"><a href="catalogo.html">Catálogo</a></li>
                 <li class="tab"><a href="contacto.html">Contacto</a></li>
-                <li class="tab"><a class="active amber-text" href="favoritos.html">Favoritos <span id="favorites-badge" class="badge amber" data-badge-caption="">0</span></a></li>
+                <li class="tab"><a class="active amber-text" href="favoritos.html">Favoritos <span id="favorites-badge"
+                            class="badge amber" data-badge-caption="">0</span></a></li>
             </ul>
         </div>
     </nav>
@@ -46,7 +47,7 @@
     <!-- CARDS -->
 
     <div class="container" style="min-height: 80vh;">
-        <h1 class="center-align">PELICULAS PA!</h1>
+        <h1 class="center-align">FAVORITOS!</h1>
         <div id="favorites-container" class="row"></div>
         <div id="no-favorites" class="center-align" style="display: none;">
             <h5>No hay películas favoritas cargadas.</h5>
@@ -55,11 +56,30 @@
 
 
     </div>
-    
+
     <!-- CARDS -->
 
     <!-- MODAL -->
 
+    <div id="modal" class="modal">
+        <div class="modal-content row">
+            <div class="col s3">
+                <img id="modal-poster" src="" alt="Poster de la película"
+                    style="width: 100%; max-height: 400px; object-fit: cover;">
+            </div>
+            <div class="col s9 container">
+                <h3 id="modal-title"></h3>
+                <p id="modal-year"></p>
+                <p id="modal-director"></p>
+                <p id="modal-plot"></p>
+                <p id="modal-rating"></p>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+    </div>
 
 
     <!-- MODAL -->
