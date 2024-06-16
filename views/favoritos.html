@@ -22,8 +22,9 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="amber-text" href="iniciarSesion.html">Iniciar Sesion</a></li>
                 <li><a class="amber-text" href="registrarse.html">Registrarse</a></li>
-                <li><a  class="waves-effect amber waves-light btn" onclick="installApp()">
-                    <i class="material-icons left" id="install-button" style="display: none;" >file_download</i>Instalar</a></li>
+                <li><a class="waves-effect amber waves-light btn" onclick="installApp()">
+                        <i class="material-icons left" id="install-button"
+                            style="display: none;">file_download</i>Instalar</a></li>
             </ul>
         </div>
         <div class="nav-content">
@@ -31,7 +32,8 @@
                 <li class="tab"><a href="../index.html"> Inicio </a></li>
                 <li class="tab"><a href="catalogo.html">Catálogo</a></li>
                 <li class="tab"><a href="contacto.html">Contacto</a></li>
-                <li class="tab"><a class="active amber-text" href="favoritos.html">Favoritos <span class="badge amber">1</span></a></li>
+                <li class="tab"><a class="active amber-text" href="favoritos.html">Favoritos <span
+                            class="badge amber">1</span></a></li>
             </ul>
         </div>
     </nav>
@@ -44,14 +46,17 @@
 
     <!-- CARDS -->
 
-    <div class="container">
+    <div class="container" style="min-height: 80vh;">
         <h1 class="center-align">PELICULAS PA!</h1>
-        <div id="movies-container" class="row">
-
-            
+        <div id="favorites-container" class="row"></div>
+        <div id="no-favorites" class="center-align" style="display: none;">
+            <h5>No hay películas favoritas cargadas.</h5>
+            <a href="catalogo.html" class="btn amber">Ir al Catálogo</a>
         </div>
-    </div>
 
+
+    </div>
+    
     <!-- CARDS -->
 
     <!-- MODAL -->
@@ -63,8 +68,8 @@
         <div class="container">
             <div class="row">
                 <div class="col l2 s>
-                    <a href="#" class="brand-logo"><img class="footerLogo" src="../img/logo.svg"
-                            alt="logo de peliculas"></a>
+                    <a href=" #" class="brand-logo"><img class="footerLogo" src="../img/logo.svg"
+                        alt="logo de peliculas"></a>
                 </div>
                 <div class="col l6 s12">
                     <h5 class="white-text">Mundo Cine</h5>
@@ -98,9 +103,9 @@
         let deferredPrompt;
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();  
-            deferredPrompt = e;  
-            document.getElementById('install-button').style.display = 'block'; 
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('install-button').style.display = 'block';
         });
 
         function installApp() {
@@ -109,7 +114,7 @@
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('ususario acepto la instalacion');
-                        document.getElementById('install-button').style.display = 'none'; 
+                        document.getElementById('install-button').style.display = 'none';
                     }
                     deferredPrompt = null;
                 });
