@@ -49,34 +49,35 @@
             <h1>Contactanos!</h1>
             <h4>Dejanos tu mensaje</h4>
 
-            <form id="contact-form" class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Nombre" id="primerNombre" name="primerNombre" type="text" class="validate" required>
-                        <label for="primerNombre">Nombre: </label>
+            <div class="row">
+                <form class="col s12" method="post" action="procesar.php">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Nombre" id="primerNombre" type="text" name="primerNombre" class="validate">
+                            <label for="primerNombre">Nombre: </label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Apellido" id="apellido" type="text" name="apellido" class="validate">
+                            <label for="apellido">Apellido: </label>
+                        </div>
                     </div>
-                    <div class="input-field col s6">
-                        <input placeholder="Apellido" id="apellido" name="apellido" type="text" class="validate" required>
-                        <label for="apellido">Apellido: </label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="nombre@correo.com" id="email" type="email" name="email" class="validate">
+                            <label for="email">Email: </label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input placeholder="nombre@correo.com" id="email" name="email" type="email" class="validate" required>
-                        <label for="email">Email: </label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea placeholder="Hola!! me gustan las peliculas!" id="Mensaje" name="Mensaje" class="materialize-textarea"></textarea>
+                            <label for="Mensaje">Dinos alguna peli para agregar: </label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea placeholder="Hola!! me gustan las peliculas!" id="mensaje" name="mensaje" class="materialize-textarea" required></textarea>
-                        <label for="mensaje">Mensaje: </label>
-                    </div>
-                </div>
-                <button class="btn waves-effect waves-light amber" type="submit" name="action">Enviar
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
-            
+                    <button class="btn waves-effect waves-light amber" type="submit" name="action">Enviar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
 
         </div>
     </div>

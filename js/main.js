@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
     actualizarBadge();
 });
 
+
+
+
+
 async function obtenerDetallesDePelicula(titulo) {
     const params = new URLSearchParams({
         apikey: apiKey,
@@ -221,6 +225,8 @@ function mostrarDetalles(idPelicula) {
         modal.open();
     }
 }
+
+
 
 function guardarPeliculasFavoritas(favoritas) {
     localStorage.setItem('peliculasFavoritas', JSON.stringify(favoritas));
