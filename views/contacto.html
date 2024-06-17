@@ -16,7 +16,7 @@
 
     <nav class="nav-extended black">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas">
+            <a href="/index.html" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas">
                 MUNDO<span>CINE</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -49,38 +49,34 @@
             <h1>Contactanos!</h1>
             <h4>Dejanos tu mensaje</h4>
 
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Nombre" id="primerNombre" type="text" class="validate">
-                            <label for="primerNombre">Nombre: </label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input placeholder="Apellido" id="apellido" type="text" class="validate">
-                            <label for="apellido">Apellido: </label>
-                        </div>
+            <form id="contact-form" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Nombre" id="primerNombre" name="primerNombre" type="text" class="validate" required>
+                        <label for="primerNombre">Nombre: </label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input placeholder="nombre@correo.com" id="email" type="email" class="validate">
-                            <label for="email">Email: </label>
-                        </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Apellido" id="apellido" name="apellido" type="text" class="validate" required>
+                        <label for="apellido">Apellido: </label>
                     </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea placeholder="Hola!! me gustan las peliculas!" id="Mensaje" class="materialize-textarea"></textarea>
-                            <label for="Mensaje">Mensaje: </label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="nombre@correo.com" id="email" name="email" type="email" class="validate" required>
+                        <label for="email">Email: </label>
                     </div>
-
-                    <button class="btn waves-effect waves-light amber" type="submit" name="action">Enviar
-                        <i class="material-icons right">send</i>
-                    </button>
-
-                </form>
-            </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea placeholder="Hola!! me gustan las peliculas!" id="mensaje" name="mensaje" class="materialize-textarea" required></textarea>
+                        <label for="mensaje">Mensaje: </label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light amber" type="submit" name="action">Enviar
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+            
 
         </div>
     </div>

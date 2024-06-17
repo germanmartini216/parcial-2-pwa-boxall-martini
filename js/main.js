@@ -5,7 +5,17 @@ if ('serviceWorker' in navigator) {
         }).catch(error => {
             console.error('El registro de ServiceWorker falló:', error);
         });
+        window.addEventListener('offline', () => {
+            mostrarNotificacionOffline();
+        });
     });
+}
+function mostrarNotificacionOffline() {
+    const notification = document.getElementById('offline-notification');
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 3000); 
 }
 
 const apiKey = '50a718ad';
@@ -41,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('favorites-container')) {
         mostrarPeliculasFavoritas();
     }
-    actualizarBadge();  // Actualizar el badge al cargar la página
+    actualizarBadge();
 });
 
 async function obtenerDetallesDePelicula(titulo) {
@@ -144,7 +154,7 @@ async function mostrarPeliculasFavoritas() {
             console.warn(`Película no encontrada: ${JSON.stringify(pelicula)}`);
         }
     });
-    actualizarBadge();  // Actualizar el badge después de cargar las películas favoritas
+    actualizarBadge();
 }
 
 function mostrarPeliculas(peliculas) {
@@ -195,7 +205,7 @@ function alternarFavorito(idPelicula) {
     }
     guardarPeliculasFavoritas(peliculasFavoritas);
     obtenerYMostrarPeliculas();
-    actualizarBadge();  // Actualizar el badge
+    actualizarBadge();
 }
 
 function mostrarDetalles(idPelicula) {
