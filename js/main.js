@@ -212,9 +212,9 @@ function alternarFavorito(idPelicula) {
     actualizarBadge();
 }
 
-function mostrarDetalles(idPelicula) {
-    const pelicula = peliculasGuardadas.find(pelicula => pelicula.imdbID === idPelicula) || peliculasFavoritas.find(pelicula => pelicula.imdbID === idPelicula);
-    if (pelicula) {
+async function mostrarDetalles(idPelicula) {
+    const pelicula = await obtenerDetallesDePeliculaPorID(idPelicula);
+    if (pelicula && pelicula.Response === "True") {
         document.getElementById('modal-title').textContent = pelicula.Title;
         document.getElementById('modal-poster').src = pelicula.Poster;
         document.getElementById('modal-year').textContent = `Año: ${pelicula.Year}`;
@@ -223,6 +223,8 @@ function mostrarDetalles(idPelicula) {
         document.getElementById('modal-rating').textContent = `IMDb Rating: ${pelicula.imdbRating}`;
         const modal = M.Modal.getInstance(document.getElementById('modal'));
         modal.open();
+    } else {
+        console.error('No se pudieron obtener los detalles de la película');
     }
 }
 
@@ -240,4 +242,5 @@ function cargarPeliculasFavoritas() {
 function actualizarBadge() {
     const badge = document.getElementById('favorites-badge');
     badge.textContent = peliculasFavoritas.length;
+
 }
