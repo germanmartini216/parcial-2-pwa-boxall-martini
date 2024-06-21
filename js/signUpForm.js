@@ -15,8 +15,18 @@ signUpForm.addEventListener('submit', async (e) => {
 
         successMessage.style.display = 'block';
         signUpForm.style.display = 'none';
-        
+        M.toast({ html: 'Operación completada correctamente', classes: 'green' });
+
     } catch (error) {
-        console.log('Error al crear el usuario:', error)
+
+        if (error.code === 'auth/invalid-email') {
+            M.toast({ html: 'Se debe ingresar un email valido', classes: 'red lighten-3' });
+        } else if (error.code === 'auth/weak-password') {
+            M.toast({ html: 'Se debe ingresar una contraseña valida', classes: 'red lighten-3' });
+        } else if (error.code === 'auth/email-already-in-use') {
+            M.toast({ html: 'El email ya esta registrado', classes: 'red lighten-3' });
+        } else if (error.code) {
+            M.toast({ html: 'Algo anda mal', classes: 'red lighten-3' });
+        }
     }
 })
