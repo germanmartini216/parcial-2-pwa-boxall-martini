@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="manifest" href="/manifest.json">
     <script src="js/main_db.js" type="module"></script>
-    
+
 </head>
 
 <body>
@@ -23,8 +23,9 @@
                 MUNDO<span>CINE</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a class="amber-text" href="views/iniciarSesion.html">Iniciar Sesion</a></li>
-                <li><a class="amber-text" href="views/registrarse.html">Registrarse</a></li>
+                <li class="logged-out"><a class="amber-text" href="views/iniciarSesion.html">Iniciar Sesion</a></li>
+                <li class="logged-out"><a class="amber-text" href="views/registrarse.html">Registrarse</a></li>
+                <li class="logged-in"><a id="logout" class="amber-text" href="#">Cerrar Sesion</a></li>
                 <li><a class="waves-effect amber waves-light btn" onclick="installApp()">
                         <i class="material-icons left" id="install-button">file_download</i>Instalar</a></li>
 
