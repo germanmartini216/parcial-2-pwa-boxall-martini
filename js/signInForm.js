@@ -13,6 +13,8 @@ if (signInForm) {
         try {
             const preloader = document.querySelector('#preloader');
             const loginLogo = document.querySelector('#login-logo');
+
+
             loginLogo.style.display = 'none';
             preloader.style.display = 'block';
             
@@ -29,6 +31,8 @@ if (signInForm) {
                 window.location.href = "../index.html";
             }, 1500); // Ajusta el tiempo según sea necesario
             
+            
+
         } catch (error) {
             console.log(error);
             if (error.code === 'auth/invalid-email') {

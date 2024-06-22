@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 //NAVEGACION----------------------
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems);
+});
+
 
 //NAVEGACION----------------------
 

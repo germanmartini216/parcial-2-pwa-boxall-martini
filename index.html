@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body class="blue-grey lighten-5">
 
     <nav class="nav-extended black">
         <div class="nav-wrapper">
@@ -27,9 +27,8 @@
                 <li class="logged-out"><a class="amber-text" href="views/registrarse.html">Registrarse</a></li>
                 <li class="logged-in"><a id="logout" class="amber-text" href="#">Cerrar Sesion</a></li>
                 <li><a class="waves-effect amber waves-light btn" onclick="installApp()">
-                        <i class="material-icons left" id="install-button">file_download</i>Instalar</a></li>
-
-
+                        <i class="material-icons left" id="install-button">file_download</i>Instalar</a>
+                </li>
             </ul>
         </div>
         <div class="nav-content">
@@ -49,34 +48,52 @@
     </div>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="views/iniciarSesion.html">Iniciar Sesion</a></li>
-        <li><a href="views/registrarse.html">Registrarse</a></li>
+        </li>
+        <li class="logged-out waves-effect"><a class="amber-text" href="views/iniciarSesion.html">Iniciar Sesion</a></li>
+        <li class="logged-out waves-effect"><a class="amber-text" href="views/registrarse.html">Registrarse</a></li>
+        <li class="logged-in waves-effect"><a id="logout" class="amber-text" href="#">Cerrar Sesion</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="waves-effect amber waves-light btn" onclick="installApp()">
+                <i class="material-icons left" id="install-button">file_download</i>Instalar</a>
+        </li>
+    
+
+    
+        </ul>
     </ul>
 
-    <section class="sec1 row">
-        <div class="col s6">
-        </div>
-        <div class="col s6">
-            <h1 class="black-text">MUNDO<br><span>CINE </span><img class="logo" src="img/logo.svg"
-                    alt="logo mundo cine"></h1>
-        </div>
-    </section>
 
-    <div class="parallax-container">
-        <img src="img/rollo.svg" alt="rollo de video">
-        <div class="parallax">
-            <img src="img/Slider1.jpg" alt="parallax">
+    <div class="container z-depth-5">
+        <section class="sec1 row">
+            <div class="col s6">
+            </div>
+            <div class="col s6">
+                <h1 class="black-text">MUNDO<br><span>CINE </span><img class="logo" src="img/logo.svg"
+                        alt="logo mundo cine"></h1>
+            </div>
+        </section>
+
+        <div class="parallax-container">
+            <img src="img/rollo.svg" alt="rollo de video">
+            <div class="parallax">
+                <img src="img/starWars.jpeg" alt="parallax">
+            </div>
         </div>
-    </div>
-    <div class="section white">
-        <div class="row container">
-            <h2 class="header">Parallax</h2>
-            <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in
-                this case, is moved at a different speed than the foreground content while scrolling.</p>
+        <div class="section white">
+            <div class="row container">
+                <h2 class="header">Mundo<span class="amber-text">Cine</span></h2>
+                <p class="grey-text text-darken-3 lighten-3">
+                    Donde podes encontrar informacion de las peliculas que mas te gustan!
+                    solo tenes que ir al catalogo y buscar la pelicula que desees!!
+                </p>
+                <a href="views/catalogo.html" class="waves-effect waves-light btn amber">Catálogo</a>
+
+            </div>
         </div>
-    </div>
-    <div class="parallax-container">
-        <div class="parallax"><img src="img/Slider1.jpg" alt="parallax"></div>
+
+
     </div>
 
     <footer class="page-footer black">
@@ -99,6 +116,7 @@
                         <li><a class="active amber-text" href="index.html"> Inicio </a></li>
                         <li><a class="amber-text" href="views/catalogo.html">Catálogo</a></li>
                         <li><a class="amber-text" href="views/contacto.html">Contacto</a></li>
+                        <li><a class="amber-text" href="views/favoritos.html">Favoritos</a></li>
                     </ul>
                 </div>
             </div>
