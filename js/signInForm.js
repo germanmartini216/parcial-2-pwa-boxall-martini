@@ -18,7 +18,6 @@ if (signInForm) {
             loginLogo.style.display = 'none';
             preloader.style.display = 'block';
             
-            // Pequeño retraso para que el preloader se renderice
             await new Promise(resolve => setTimeout(resolve, 100));
             
             const credentials = await signInWithEmailAndPassword(auth, email, password);
@@ -26,10 +25,9 @@ if (signInForm) {
         
             M.toast({ html: 'Bienvenido ' + email, classes: 'green' });
         
-            // Redirigir al usuario después de mostrar el preloader
             setTimeout(() => {
                 window.location.href = "../index.html";
-            }, 1500); // Ajusta el tiempo según sea necesario
+            }, 1500);
             
             
 
@@ -48,7 +46,6 @@ if (signInForm) {
                 console.log(error.message);
             }
         
-            // Ocultar el preloader si hay un error
             const preloader = document.querySelector('.preloader');
             preloader.style.display = 'none';
         }

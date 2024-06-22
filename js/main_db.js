@@ -11,9 +11,4 @@ onAuthStateChanged(auth, async (user) => {
     
     loginCheck(user)
 
-    // if (user) {
-    //     loginCheck(user)
-    // } else {
-    //     loginCheck(user)
-    // };  
 });
