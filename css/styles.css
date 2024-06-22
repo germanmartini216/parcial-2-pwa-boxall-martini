@@ -104,7 +104,8 @@ form {
   height: 100%;
 }
 
-#movies-container {
+#movies-container,
+#favorites-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -169,4 +170,33 @@ form {
 
 /* Estilos para vista movil */
 @media (max-width: 767px) {
+
+  .container.z-depth-5{
+    width: 100%;
+}
+.sec1{
+  height: 28vh;
+}
+h1{
+  font-size: 2rem;
+}
+.nav-content{
+  display: none;
+}
+nav .brand-logo {
+  left: 50%;
+  font-size: 1rem;
+}
+.brand-logo{
+  font-size: 3rem;
+}
+
+nav.nav-extended .nav-wrapper {
+  min-height: 140px;
+}
+.logo {
+  width: 34px;
+  height: 30px;
+}
+
 }

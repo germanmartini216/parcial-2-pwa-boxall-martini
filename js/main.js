@@ -125,7 +125,6 @@ async function mostrarPeliculasFavoritas() {
         contenedorDeFavoritas.style.display = 'none';
     } else {
         noFavoritas.style.display = 'none';
-        contenedorDeFavoritas.style.display = 'flex';
     }
 
     contenedorDeFavoritas.innerHTML = '';
