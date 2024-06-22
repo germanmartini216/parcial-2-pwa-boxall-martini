@@ -3,8 +3,10 @@ import { auth } from "./firebase.js"
 
 const logout = document.querySelector('#logout')
 
-logout.addEventListener('click', async () =>{
-    await signOut(auth)
-    
-    console.log('El usuario ha cerrado la sesion')
-}) 
+if(logout){
+    logout.addEventListener('click', async () =>{
+        await signOut(auth)
+        
+        console.log('El usuario ha cerrado la sesion')
+    }) 
+}

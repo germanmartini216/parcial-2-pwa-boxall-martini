@@ -4,12 +4,16 @@ import { loginCheck } from './loginCheck.js'
 
 import './signUpForm.js'
 import './logout.js'
+import './signInForm.js'
 
 
 onAuthStateChanged(auth, async (user) => {
-    if (user) {
-        loginCheck(user)
-    } else {
+    
+    loginCheck(user)
 
-    };
+    // if (user) {
+    //     loginCheck(user)
+    // } else {
+    //     loginCheck(user)
+    // };  
 });
