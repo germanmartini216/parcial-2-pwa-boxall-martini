@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var instances = M.Sidenav.init(elems);
 });
 
-
 //NAVEGACION----------------------
 
 

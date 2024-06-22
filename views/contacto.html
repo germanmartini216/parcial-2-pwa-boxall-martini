@@ -18,19 +18,19 @@
 
     <nav class="nav-extended black">
         <div class="nav-wrapper">
-            <a href="/index.html" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas">
+            <a href="../index.html" class="brand-logo"><img src="../img/logo.svg" alt="logo de peliculas">
                 MUNDO<span>CINE</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right">
                 <li class="logged-out"><a class="amber-text" href="iniciarSesion.html">Iniciar Sesion</a></li>
                 <li class="logged-out"><a class="amber-text" href="registrarse.html">Registrarse</a></li>
                 <li class="logged-in"><a id="logout" class="amber-text" href="#">Cerrar Sesion</a></li>
                 <li><a class="waves-effect amber waves-light btn" onclick="installApp()">
-                    <i class="material-icons left" id="install-button"
-                    style="display: none;">file_download</i>Instalar</a></li>
+                        <i class="material-icons left" id="install-button">file_download</i>Instalar</a>
+                </li>
             </ul>
         </div>
-        <div class="nav-content">
+        <div class="nav-content" >
             <ul class="tabs tabs-transparent">
                 <li class="tab"><a href="../index.html"> Inicio </a></li>
                 <li class="tab"><a href="catalogo.html">Catálogo</a></li>
@@ -40,9 +40,21 @@
         </div>
     </nav>
 
+    <div id="offline-notification" class="offline-notification" style="display: none;">
+        La aplicación está en modo offline.
+    </div>
+
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="iniciarSesion.html">Iniciar Sesion</a></li>
-        <li><a href="registrarse.html">Registrarse</a></li>
+        <div class="black valign-wrapper center-align" style="justify-content: center;">
+            <a href="#" class="brand-logo white-text">MUNDO <br><span>CINE</span><img src="../img/logo.svg" alt="logo de peliculas"></a>
+        </div>
+
+        <li class="tab"><a href="../index.html"> Inicio </a></li>
+        <li class="tab"><a href="catalogo.html">Catálogo</a></li>
+        <li class="tab"><a class="active amber-text" href="contacto.html">Contacto</a></li>
+        <li class="tab"><a href="favoritos.html">Favoritos <span id="favorites-badge" class="badge amber"
+                    data-badge-caption="">0</span></a></li>
+
     </ul>
     <!-- NAV -->
 
@@ -92,14 +104,14 @@
                     <a href="#" class="brand-logo"><img class="footerLogo" src="../img/logo.svg"
                             alt="logo de peliculas"></a>
                 </div>
-                <div class="col l6 s12">
+                <div class="col l6 m6 s12">
                     <h5 class="white-text">Mundo Cine</h5>
 
                     <p class="grey-text text-lighten-4">Podes contactarnos para solicitar las peliculas que quieras
                         agregar al catálogo</p>
                     <a class="waves-effect amber waves-light btn" href="contacto.html">Contacto</a>
                 </div>
-                <div class="col l4 s12">
+                <div class="col l4 m6 s12">
                     <h5 class="white-text">Menu</h5>
                     <ul>
                         <li><a class="active amber-text" href="../index.html"> Inicio </a></li>

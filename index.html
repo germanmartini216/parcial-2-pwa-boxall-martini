@@ -22,7 +22,7 @@
             <a href="/index.html" class="brand-logo"><img src="img/logo.svg" alt="logo de peliculas">
                 MUNDO<span>CINE</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right">
                 <li class="logged-out"><a class="amber-text" href="views/iniciarSesion.html">Iniciar Sesion</a></li>
                 <li class="logged-out"><a class="amber-text" href="views/registrarse.html">Registrarse</a></li>
                 <li class="logged-in"><a id="logout" class="amber-text" href="#">Cerrar Sesion</a></li>
@@ -31,14 +31,12 @@
                 </li>
             </ul>
         </div>
-        <div class="nav-content">
+        <div class="nav-content" >
             <ul class="tabs tabs-transparent">
                 <li class="tab"><a class="active amber-text" href="index.html"> Inicio </a></li>
                 <li class="tab"><a href="views/catalogo.html">Catálogo</a></li>
                 <li class="tab"><a href="views/contacto.html">Contacto</a></li>
-                <li class="tab"><a href="views/favoritos.html">Favoritos <span id="favorites-badge" class="badge amber"
-                            data-badge-caption="">0</span></a></li>
-
+                <li class="tab"><a href="views/favoritos.html">Favoritos <span id="favorites-badge" class="badge amber" data-badge-caption="">0</span></a></li>
             </ul>
         </div>
     </nav>
@@ -48,20 +46,16 @@
     </div>
 
     <ul class="sidenav" id="mobile-demo">
-        </li>
-        <li class="logged-out waves-effect"><a class="amber-text" href="views/iniciarSesion.html">Iniciar Sesion</a></li>
-        <li class="logged-out waves-effect"><a class="amber-text" href="views/registrarse.html">Registrarse</a></li>
-        <li class="logged-in waves-effect"><a id="logout" class="amber-text" href="#">Cerrar Sesion</a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li><a class="waves-effect amber waves-light btn" onclick="installApp()">
-                <i class="material-icons left" id="install-button">file_download</i>Instalar</a>
-        </li>
-    
+        <div class="black valign-wrapper center-align" style="justify-content: center;">
+            <a href="#" class="brand-logo white-text">MUNDO <br><span>CINE</span><img src="img/logo.svg" alt="logo de peliculas"></a>
+        </div>
 
-    
-        </ul>
+        <li class="tab"><a class="active amber-text" href="index.html"> Inicio </a></li>
+        <li class="tab"><a href="views/catalogo.html">Catálogo</a></li>
+        <li class="tab"><a href="views/contacto.html">Contacto</a></li>
+        <li class="tab"><a href="views/favoritos.html">Favoritos <span id="favorites-badge" class="badge amber"
+                    data-badge-caption="">0</span></a></li>
+
     </ul>
 
 
@@ -103,14 +97,14 @@
                     <a href="#" class="brand-logo"><img class="footerLogo" src="img/logo.svg"
                             alt="logo de peliculas"></a>
                 </div>
-                <div class="col l6 s12">
+                <div class="col l6 m6 s12">
                     <h5 class="white-text">Mundo Cine</h5>
 
                     <p class="grey-text text-lighten-4">Podes contactarnos para solicitar las peliculas que quieras
                         agregar al catálogo</p>
                     <a class="waves-effect amber waves-light btn" href="views/contacto.html">Contacto</a>
                 </div>
-                <div class="col l4 s12">
+                <div class="col l4 m6 s12">
                     <h5 class="white-text">Menu</h5>
                     <ul>
                         <li><a class="active amber-text" href="index.html"> Inicio </a></li>
